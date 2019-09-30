@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="container">
+    <div class="row">
+        <div class="col-sm-12 text-center">
+            <h1 style="color:green">{{product.name}}</h1>
+            <img src="{{product.image.url}}" class="img-fluid mt-2" width="400" alt="{{product.name}}" style="border: 12px solid black; border-radius:15px;">
+            <p class="mt-2" style="font-size: 152%">{{product.desc}}</p>
+            <h3>Price {{product.rate}} rupees</h3>
+            <a href="{% url 'details' product.id %}" class="btn btn-primary mb-5">Buy Now</a>
+        </div>
+        
+    </div>
+</section>
+
+{% endblock %}

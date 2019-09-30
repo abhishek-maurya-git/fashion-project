@@ -18,7 +18,7 @@
           <h4 class="text-center">{{product.rate}}</h4>
           <p class="card-text text-center">{{product.desc}}</p>
           <div class="text-center">
-            <a href="#" class="btn btn-primary">View more</a>
+            <a href="{% url 'details' product.id %}" class="btn btn-primary">View more</a>
           </div>
         </div>
       </div>
