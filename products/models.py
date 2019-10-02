@@ -5,3 +5,7 @@ class Products(models.Model):
     desc = models.TextField(max_length=200)
     image = models.ImageField(upload_to='images/')
     rate = models.IntegerField(default=0)
+
+
+    def __str__(self):
+        return self.name
