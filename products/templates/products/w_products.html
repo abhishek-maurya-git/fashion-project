@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Manyavar
+{% endblock%}
+
+
+{% block content %}
+
+<div >
+  <img src="{% static 'w_crousal.jpg'%}" style='height: 100%; width: 100%; object-fit: contain' alt="">
+</div> 
+
+
+<div class="row mb-0">
+    <div class="col-sm-12 text-center">
+        <h1 >Women's Section</h1>
+        <hr>
+    </div>
+</div>
+
+<div class="row mt-0 ml-2 p-1 pt-3" style="background-color: rgb(240, 238, 207);">
+{% for product in products.all %}
+  <a href="{% url 'details' product.id %}" class="mt-2">
+    <div>
+      <img src="{{product.image.url}}" class="img-fluid mr-3" height="200" width="300" alt="">
+    </a>
+      <div class="text-center">
+        <p>{{product.name}}
+          <br>
+          <i class="fa fa-inr" aria-hidden="true"></i>
+          {{product.rate}} <br>
+          <a href="{% url 'w_details' product.id %}">
+            <button type="button" class="btn btn-danger text-white mt-0" style="border-radius:10%;">Shop Now</button>
+          </a>
+        </p>
+      </div>
+    </div class="mb-2">
+{% endfor %}
+</div>
+
+{% endblock %}
