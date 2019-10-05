@@ -2,16 +2,22 @@
 
 {% block content %}
 
-<section class="container">
-    <div class="row">
-        <div class="col-sm-12 text-center">
-            <h1 style="color:green">{{product.name}}</h1>
-            <img src="{{product.image.url}}" class="img-fluid mt-2" width="400" alt="{{product.name}}" style="border: 12px solid black; border-radius:15px;">
-            <p class="mt-2" style="font-size: 152%">{{product.desc}}</p>
-            <h3>Price {{product.rate}} rupees</h3>
-            <a href="{% url 'details' product.id %}" class="btn btn-primary mb-5">Buy Now</a>
+<section class="container-fluid">
+    <div class="row" style="background-color:rgb(240, 238, 207);">
+        <div class="col-sm-1 mt-4">
+            <img src="{{product.image.url}}" class="img-fluid mx-auto" alt="{{product.name}}">
         </div>
-        
+        <div class="col-sm-4 mt-4 mb-4 ml-0">
+            <img src="{{product.image.url}}" class="img-fluid mx-auto" width="500" alt="{{product.name}}" style=" box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        </div>        
+        <div class="col-sm-6 mt-4 mb-4 ml-5" style="background-color:white;box-shadow: 0 10px 18px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            <p class="text-center" style=" color:rgb(197, 88, 88);font-size: 250%; font-family:'Merriweather', serif"><b>{{product.name}}</b></p>
+            <hr>
+            <p class="" style="font-size: 150%; font-family:Arial, Helvetica, sans-serif">{{product.desc}}</p>
+            <p style="font-size: 180%"><i class="fa fa-inr" aria-hidden="true"></i> {{product.rate}}</p>
+            <button type="button" class="btn btn-dark">Add to cart</button>
+            <button type="button" class="btn btn-danger">Buy Now</button>
+        </div>
     </div>
 </section>
 

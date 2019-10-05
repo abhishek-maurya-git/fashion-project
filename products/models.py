@@ -1,8 +1,28 @@
 from django.db import models
 
 class Products(models.Model):
-    name = models.TextField(max_length=100)
-    desc = models.TextField(max_length=200)
+    name = models.CharField(max_length=100)
+    desc = models.TextField()
+    image = models.ImageField(upload_to='images/')
+    rate = models.IntegerField(default=0)
+
+
+    def __str__(self):
+        return self.name
+
+class Women_products(models.Model):
+    name = models.CharField(max_length=100)
+    desc = models.TextField()
+    image = models.ImageField(upload_to='images/')
+    rate = models.IntegerField(default=0)
+
+
+    def __str__(self):
+        return self.name
+
+class Kids_products(models.Model):
+    name = models.CharField(max_length=100)
+    desc = models.TextField()
     image = models.ImageField(upload_to='images/')
     rate = models.IntegerField(default=0)
 

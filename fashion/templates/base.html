@@ -8,14 +8,16 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <title>Hello, world!</title>
+    <title>{% block title %} {% endblock %}</title>
   </head>
   <body>
     
     <header>
         <nav class="navbar navbar-dark navbar-expand-lg" style="background-color: rgb(165, 40, 40);">
-                <a class="navbar-brand" href="#"><img src="{% static 'manyavar_logo.png' %}" alt="Manyavar"></a>
+                <a class="navbar-brand" href="#"><img src="{% static 'manyavar_logo.png' %}" class="img-fluid" alt="Manyavar"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
@@ -33,7 +35,7 @@
                           </li>
                   </ul>
                   <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search for cloths" aria-label="Search">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search for cloths " aria-label="Search">
                   </form>
                 </div>
           </nav>
