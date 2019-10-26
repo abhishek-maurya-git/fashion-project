@@ -10,41 +10,63 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Merriweather&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+      {% block css %}  {% endblock %}
+    </style>
 
     <title>{% block title %} {% endblock %}</title>
   </head>
   <body>
-    
+
     <header>
-        <nav class="navbar navbar-dark navbar-expand-lg" style="background-color: rgb(165, 40, 40);">
-                <a class="navbar-brand" href="#"><img src="{% static 'manyavar_logo.png' %}" class="img-fluid" alt="Manyavar"></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-              
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                      <a class="nav-link ml-2" href="{% url 'index' %}">Men <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item active">
-                      <a class="nav-link ml-2" href="{% url 'women' %}">Women</a>
-                    </li>
-                    <li class="nav-item active">
-                            <a class="nav-link ml-2" href="#">Kids</a>
-                          </li>
-                  </ul>
-                  <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search for cloths " aria-label="Search">
-                  </form>
-                </div>
-          </nav>
+      <nav class="navbar navbar-dark navbar-expand-lg" style="background-color: rgb(165, 40, 40);">
+          <a class="navbar-brand" href="{% url 'index' %}"><img src="{% static 'manyavar_logo.png' %}" class="img-fluid" alt="Manyavar"></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link ml-2" href="{% url 'index' %}">Men <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link ml-2" href="{% url 'women' %}">Women</a>
+              </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search for cloths " aria-label="Search">
+            </form>
+            <ul class="navbar-nav">
+              {% if user.is_authenticated %}
+              {% block nav %}
+
+
+              {% endblock %}
+              <li class="nav-item active">
+                <a class="nav-item nav-link" href="javascript:{document.getElementById('logout').submit()}" onclick="">Logout</a>
+              </li>
+              <form id="logout" method="POST" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <input type="hidden" />
+              </form>
+              {% else %}
+                <li class="nav-item active">
+                    <a class="nav-link ml-2" href="{% url 'signup' %}">Sign Up</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link ml-2" href="{% url 'login' %}">Login</a>
+                </li>
+              {% endif %}
+            </ul>
+          </div>
+      </nav>
     </header>
     {% block content %}
 
     {% endblock %}
 
-    <footer class=" bg-dark text-white mb-0 pb-1 pt-2 my-auto">
+    <footer class=" bg-dark text-white mb-0 pb-1 pt-2">
       <p class="text-center" style="font-size: 120%;">Manyavar ltd.<br>
       For any query call us at 9968745120 <br>
         or email us on manyavar@gmail.com .

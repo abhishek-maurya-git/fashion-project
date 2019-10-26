@@ -4,16 +4,16 @@
 
 <section class="container-fluid pb-5" style="background-color:rgb(240, 238, 207);">
     <div class="row" >
-        <div class="col-sm-1 mt-4">
-            <img src="{{product.image.url}}" id="img1" onclick="change1();" class="img-fluid mx-auto mb-1" alt="{{product.name}}">
+        <div class="col-sm-1 col-2 mt-4">
+            <img src="{{product.image.url}}"   id="img1" onclick="change();" class="img-fluid mx-auto mb-1" alt="{{product.name}}">
             <img src="{{product.image_2.url}}" id="img2" onclick="change2();" class="img-fluid mx-auto mb-1" alt="{{product.name}}">
             <img src="{{product.image_3.url}}" id="img3" onclick="change3();" class="img-fluid mx-auto mb-1" alt="{{product.name}}">
         </div>
-        <div class="col-sm-4 mt-4 mb-4 ml-0">
-            <img src="{{product.image.url}}" id="main_img" class="img-fluid mx-auto" width="500" alt="{{product.name}}" style="border:2px solid red; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-        </div>        
-        <div class="col-sm-6 mt-4 mb-4 ml-5" style="background-color:white;box-shadow: 0 10px 18px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-            <p class="text-center" style=" color:rgb(197, 88, 88);font-size: 250%; font-family:'Merriweather', serif"><b>{{product.name}}</b></p>
+        <div class="col-sm-4 col-8 mt-4 mb-4 ml-0">
+            <img src="{{product.image.url}}" id="main_img" class="img-fluid mx-auto" width="500" alt="{{product.name}}" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        </div>
+        <div class="col-sm-6 col-10 mt-4 mb-4 ml-0 mx-auto pb-2" style="background-color:white;box-shadow: 0 10px 18px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            <p class="text-center" style=" color:rgb(190, 59, 59);font-size: 250%; font-family:'Merriweather', serif"><b>{{product.name}}</b></p>
             <hr>
             <p class="" style="font-size: 150%; font-family:Arial, Helvetica, sans-serif">{{product.desc}}</p>
             <p style="font-size: 180%"><i class="fa fa-inr" aria-hidden="true"></i> {{product.rate}}</p>
@@ -25,18 +25,21 @@
 
 <script>
     var main_img = document.getElementById('main_img');
-    function change1(){
-    main_img.src =  document.getElementById("img1").src;
-    main_img.style.border = '2px solid red';
+
+   function change(){
+       img1 = document.getElementById('img1').src;
+       main_img.src = img1;
+   }
+
+   function change2(){
+        img2 = document.getElementById('img2').src;
+        main_img.src = img2;
     }
-    function change2(){
-    main_img.src =  document.getElementById("img2").src;
-    main_img.style.border = '2px solid orange';
-    }
+
     function change3(){
-    main_img.src =  document.getElementById("img3").src;
-    main_img.style.border = '2px solid yellow';
-    }
+        img3 = document.getElementById('img3').src;
+        main_img.src = img3;
+        }
 </script>
 
 {% endblock %}
